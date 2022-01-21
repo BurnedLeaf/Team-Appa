@@ -1,10 +1,162 @@
-@import url();
-*{
-    color: rgb(120,196,196);
-    color: rgb(181,255,255);
-    color: rgb(32,24,10);
-    color: rgb(93,85,80);
-    color: rgb(255,217,163);
-    font-family: kenzo;
+@font-face {
+  font-family: kenzo;
+  src: url(fonts/Kenzomaru-9Yp2K_2.otf);
 }
 
+@font-face {
+  font-family: herucla;
+  src: url(fonts/HerculanumLTStd.otf);
+}
+
+body{
+  
+  overflow: hidden;
+}
+* {
+  color: #78c4c4;
+  color: #b5ffff;
+  color: #20180a;
+  color: #5d5550;
+  color: #ffd9a3;
+  font-family: herucla;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+.menu-nav{
+  border-bottom: solid #5d5550;
+  height: 100px;
+  width: auto;
+  position: fixed;
+  top: 0;
+  width:100%
+}
+
+.right-open{
+  width: 25%;
+  height: 100vh;
+  float: right;
+}
+
+.left-open{
+
+  width: 25%;
+  height: 100vh;
+  float: left;
+}
+
+.mid-open{
+  width: 50%;
+  height:100vh;
+  display: grid;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.foto{
+  
+  border-radius: 50%;
+}
+
+.name{
+  justify-self: center;
+  align-self: flex-start;
+  font-size: 70px;
+  
+}
+.grid-container{
+  display:flex;
+  grid-template-columns: repeat(4, 1fr);
+
+}
+.buttons{
+  border: solid 3px;
+  align-self: center;
+  justify-self: center;
+  padding: 20px 50px ;
+  margin: 10px;
+  width: 100%;
+  border-radius: 5%;
+  background-color:#20180a;
+  transition:width 3s, height 3s,transform 1s;
+  animation-name: turn;
+  animation-duration: 1.2s; 
+}
+
+.button-right{
+  max-width: 1200px;
+}
+
+.button-other{
+  max-width: 15%;
+}
+
+.buttons:hover{
+  height: 70px;
+  transform: scale(1.2);
+  animation-name: turn;
+  animation-duration: 2s; 
+ 
+}
+
+
+@keyframes turn {
+  0% {transform: rotate(0deg)}
+  100% {transform: rotate(360deg)}
+
+  
+}
+
+.scroll-down {
+  height: 50px;
+  width: 30px;
+  border: 2px solid black;
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.scroll-down::before,
+.scroll-down::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  height: 10px;
+  width: 10px;
+  transform: translate(-50%, -100%) rotate(45deg);
+  border: 2px solid black;
+  border-top: transparent;
+  border-left: transparent;
+  animation: scroll-down 1s ease-in-out infinite;
+}
+.scroll-down::before {
+  top: 30%;
+  animation-delay: 0.3s;
+   animation: scroll-down 1s ease-in-out infinite;
+}
+
+@keyframes scroll-down {
+  0% {
+     top:20%; 
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    top: 90%;
+    opacity: 0;
+  }
+}
+
+.page{
+  width: 100%;
+  height: 100vh;
+  background-color:#5d5550
+}
