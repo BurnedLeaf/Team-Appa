@@ -9,8 +9,19 @@
 }
 
 body{
-  
   overflow: hidden;
+  background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0.0)), url(img/desktop.appa.jpg);
+
+  background-size: 100%;
+}
+@media  screen and (max-width: 1000px) {
+  body{
+    overflow: hidden;
+    background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0.0)), url(img/telefoon.appa.webp);
+  
+    background-size: 100%;
+  }
+  
 }
 * {
   color: #78c4c4;
@@ -22,15 +33,6 @@ body{
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-}
-
-.menu-nav{
-  border-bottom: solid #5d5550;
-  height: 100px;
-  width: auto;
-  position: fixed;
-  top: 0;
-  width:100%
 }
 
 .right-open{
@@ -109,13 +111,13 @@ body{
 }
 
 .scroll-down {
-  height: 50px;
-  width: 30px;
+  height: 20px;
+  width: 40px;
   border: 2px solid black;
   position: absolute;
   left: 50%;
   bottom: 20px;
-  border-radius: 50px;
+  border-radius: 20px;
   cursor: pointer;
 }
 .scroll-down::before,
@@ -161,7 +163,141 @@ body{
   background-color:#5d5550;
 }
 
-video{
+img{
   width: 100%;
   height: auto;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kenzomaru", "herculanumLTstd","Myriad pro";
+}
+
+/*---nav start--- */
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding(links en rechts) */
+  padding: 0 5vw;
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 4;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 600;
+  color: #dadbdd;
+  /* halve breedte */
+  flex: 1;
+}
+
+.nav-menu {
+  /* halve breedte */
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+
+  /* max 550px */
+  max-width: 550px;
+}
+
+.nav-menu li {
+  list-style: none;
+  color: #dadbdd;
+  font-weight: 600;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #dadbdd;
+  margin: 4px;
+}
+
+.burger {
+  display: none;
+}
+
+@media screen and (max-width: 769px) {
+  .burger {
+    display: block;
+  }
+
+  /* Het menu wordt rechts weergegevn */
+  .nav-menu {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    bottom: 0;
+    width: 50vw;
+    height: calc(100vh - 80px);
+
+    background-color: rgba(0, 0, 0, 0.9);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    /* animatie */
+    transform: translateX(100%);
+  }
+
+  /* als het menu wordt geopend, schuift het naar de beginpositie */
+  .nav-menu.open {
+    transform: translateX(0);
+    transition: 0.4s ease-in-out;
+  }
+
+  .nav-menu li {
+    /* top en bottom afstand */
+    margin: 3vh;
+    transform: translateX(20px);
+    opacity: 0;
+  }
+
+  /* de knop klikt */
+  .burger.active div {
+    transition: 0.3s ease-in-out 0.3s;
+  }
+
+  /* de eerste lijn draait 45 graden */
+  .burger.active .top-line {
+    transform: rotate(45deg) translate(4px, 6px);
+  }
+
+  /* de derde lijn draait -45 graden */
+  .burger.active .bottom-line {
+    transform: rotate(-45deg) translate(4px, -6px);
+  }
+
+  /* animatie */
+  .burger.active .middle-line {
+    opacity: 0;
+    transform: translateX(10px);
+    transition: 0.3s ease-in-out;
+  }
+
+  /* animatie */
+  @keyframes slideIn {
+    from {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+/*---nav end--- */
+
+
+
+
